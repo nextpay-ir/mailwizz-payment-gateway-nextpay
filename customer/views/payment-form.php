@@ -34,6 +34,7 @@ echo CHtml::hiddenField('custom', $customVars);
 echo CHtml::hiddenField('amount', round($order->total, 2));
 echo CHtml::hiddenField('order_id', $order->plan->uid);
 echo CHtml::hiddenField('callback_uri', $notifyUrl);
+echo CHtml::hiddenField($csrfTokenName, $csrfToken);
 ?>
 <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
     Nextpay - www.nextpay.ir <br />

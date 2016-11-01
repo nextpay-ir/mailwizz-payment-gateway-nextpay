@@ -30,8 +30,12 @@ class NextpayPaymentHandler extends PaymentHandlerAbstract
         
         $customVars = sha1(StringHelper::uniqid());
         $view       = $this->extension->getPathAlias() . '.customer.views.payment-form';
-        
-        $this->controller->renderPartial($view, compact('model', 'order', 'cancelUrl', 'returnUrl', 'dopaymentUrl', 'notifyUrl', 'customVars'));
+
+        $csrfTokenName = Yii::app()->request->csrfTokenName;
+        $csrfToken = Yii::app()->request->csrfToken;
+
+
+        $this->controller->renderPartial($view, compact('model', 'order', 'cancelUrl', 'returnUrl', 'dopaymentUrl', 'notifyUrl', 'customVars', 'csrfTokenName', 'csrfToken'));
     }
     
     // mark the order as pending retry
